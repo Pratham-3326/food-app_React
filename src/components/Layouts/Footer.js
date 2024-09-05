@@ -75,11 +75,7 @@ function Footer() {
                       <i class="bi bi-instagram"></i>
                     </Link>
                   </li>
-                  <li>
-                    <Link to="/">
-                      <i class="bi bi-youtube"></i>
-                    </Link>
-                  </li>
+                  
                 </ul>
               </div>
             </Col>

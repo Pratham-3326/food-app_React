@@ -1,122 +1,130 @@
-import React from 'react';
-import BackToHomeButton from './BackToHomeButton';
+import React, { useState } from 'react';
 
-const shopItems = [
-    {
-        name: 'Tasty Burger T-Shirt',
-        description: 'Show your love for Tasty Burger with this comfortable and stylish t-shirt. Available in all sizes.',
-        price: '₹ 19.99',
-        imageUrl: 'https://i.etsystatic.com/10742640/r/il/1f5cf1/6183063777/il_1588xN.6183063777_613e.jpg', // Replace with actual image URL
-    },
-    {
-        name: 'Tasty Burger Hat',
-        description: 'Keep it cool with our Tasty Burger branded hat. Perfect for sunny days and casual outings.',
-        price: '₹ 14.99',
-        imageUrl: 'https://hatstore.imgix.net/OB1001821_1.jpg?auto=compress%2Cformat&w=816&h=653&fit=crop&q=80', // Replace with actual image URL
-    },
-    {
-        name: 'Burger Lover Mug',
-        description: 'Start your day with a hot drink in our Burger Lover Mug. Ideal for coffee, tea, or any beverage.',
-        price: '₹ 9.99',
-        imageUrl: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQcZvE0wxyDjMXQEzlzL2PYCdZ7zZr2dei6jS8FYhN85UvHt5OJd5QFYKia2NWI4jMqZdGCf6Yt60XpWDmVBWF1AvLLWuPBkpR7b8lwSV8d6kvAWM2v8XUyag', // Replace with actual image URL
-    },
-    {
-        name: 'Tasty Burger Apron',
-        description: 'Cook in style with our Tasty Burger apron. Made from high-quality materials for durability.',
-        price: '₹ 24.99',
-        imageUrl: 'https://image.spreadshirtmedia.com/image-server/v1/products/T1186A366PA3066PT17X2Y6D1019970760W18745H22494/views/1,width=800,height=800,appearanceId=366,backgroundColor=F2F2F2/tasty-burger-apron.jpg', // Replace with actual image URL
-    },
-    {
-        name: 'Burger Keychain',
-        description: 'A fun and quirky keychain for all burger lovers. Take a piece of Tasty Burger with you wherever you go.',
-        price: '₹ 4.99',
-        imageUrl: 'https://m.media-amazon.com/images/I/31OnLzYxHtL.jpg', // Replace with actual image URL
-    },
-    {
-        name: 'Tasty Burger Tote Bag',
-        description: 'Carry your essentials in our eco-friendly Tasty Burger tote bag. Spacious and durable.',
-        price: '₹ 12.99',
-        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXYG0MYgSxmv6_2edtlpTZaFOwpfgIB-yxbQ&s', // Replace with actual image URL
-    },
-    {
-        name: 'Burger Socks',
-        description: 'Keep your feet warm and stylish with these fun burger-patterned socks. A must-have for burger enthusiasts!',
-        price: '₹ 7.99',
-        imageUrl: 'https://m.media-amazon.com/images/I/71G9lAkl+8L._AC_UL480_FMwebp_QL65_.jpg', // Replace with actual image URL
-    },
-    {
-        name: 'Tasty Burger Phone Case',
-        description: 'Protect your phone with this sleek Tasty Burger branded case. Available for various phone models.',
-        price: '₹ 14.99',
-        imageUrl: 'https://i.etsystatic.com/39620059/r/il/c29550/4759675447/il_fullxfull.4759675447_4fm1.jpg', // Replace with actual image URL
-    },
+const shops = [
+  {
+    id: 1,
+    name: 'Tasty Burger Downtown',
+    address: '12 Main St, Downtown',
+    phone: '9832916215',
+    hours: '9 AM - 9 PM',
+    details: 'Located near the central park. Offers outdoor seating.',
+  },
+  {
+    id: 2,
+    name: 'Tasty Burger Uptown',
+    address: '66 Elm St, Uptown',
+    phone: '7350941158',
+    hours: '10 AM - 10 PM',
+    details: 'Known for the best cheeseburgers in the city. Ample parking available.',
+  },
+  {
+    id: 3,
+    name: 'Tasty Burger Westside',
+    address: '79 Maple St, Westside',
+    phone: '9873261376',
+    hours: '11 AM - 8 PM',
+    details: 'A cozy spot for burger lovers. Famous for double patty burgers.',
+  },
 ];
 
 const Shop = () => {
-    return (
+  const [visibleShopId, setVisibleShopId] = useState(null);
 
-        <div style={styles.container}>
-            <BackToHomeButton/>
-            <h1 style={styles.heading}>Shop Our Merchandise</h1>
-            <div style={styles.shopGrid}>
-                {shopItems.map((item, index) => (
-                    <div key={index} style={styles.shopItem}>
-                        <img src={item.imageUrl} alt={item.name} style={styles.image} />
-                        <h2 style={styles.itemName}>{item.name}</h2>
-                        <p style={styles.description}>{item.description}</p>
-                        <p style={styles.price}>{item.price}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-};
+  const toggleDetails = (id) => {
+    setVisibleShopId(visibleShopId === id ? null : id);
+  };
 
-const styles = {
+  const styles = {
     container: {
-        padding: '20px',
-        maxWidth: '1200px',
-        margin: '0 auto',
-        fontFamily: '"Arial", sans-serif',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '100vh',
+      flexDirection: 'column',
+      padding: '20px',
+      backgroundColor: '#f0f0f0',
     },
-    heading: {
-        fontSize: '2.5em',
-        textAlign: 'center',
-        marginBottom: '30px',
-        color: '#d32f2f',
+    list: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: '20px',
+      justifyContent: 'center',
+      alignItems: 'center',
+     marginBottom:'200px'
     },
-    shopGrid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-        gap: '20px',
+    card: {
+      border: '1px solid #ddd',
+      padding: '20px',
+      width: '250px',
+      textAlign: 'center',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+      cursor: 'pointer',
+      transition: 'transform 0.2s ease',
+      backgroundColor: '#fff',
     },
-    shopItem: {
-        backgroundColor: '#fff',
-        padding: '15px',
-        borderRadius: '10px',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-        textAlign: 'center',
+    cardActive: {
+      transform: 'scale(1.05)',
+      boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)',
     },
-    image: {
-        width: '100%',
-        borderRadius: '10px',
-        marginBottom: '15px',
+    title: {
+      fontSize: '1.5rem',
+      margin: '0',
+      color: '#ff6600',
     },
-    itemName: {
-        fontSize: '1.5em',
-        marginBottom: '10px',
-        color: '#333',
+    text: {
+      margin: '5px 0',
     },
-    description: {
-        fontSize: '1em',
-        marginBottom: '10px',
-        color: '#666',
+    button: {
+      backgroundColor: '#ff6600',
+      color: 'white',
+      padding: '8px 16px',
+      border: 'none',
+      cursor: 'pointer',
+      marginTop: '10px',
     },
-    price: {
-        fontSize: '1.2em',
-        fontWeight: 'bold',
-        color: '#d32f2f',
+    details: {
+      backgroundColor: '#f8f8f8',
+      padding: '10px',
+      marginTop: '10px',
+      borderRadius: '4px',
+      textAlign: 'left',
     },
+    h1:{
+      color:'red'
+    }
+  };
+
+  return (
+    <div style={styles.container}>
+      <h1 style={styles.h1}>Burger Shops</h1>
+      <div style={styles.list}>
+        {shops.map((shop) => (
+          <div
+            key={shop.id}
+            style={{
+              ...styles.card,
+              ...(visibleShopId === shop.id ? styles.cardActive : {}),
+            }}
+            onClick={() => toggleDetails(shop.id)}
+          >
+            <h3 style={styles.title}>{shop.name}</h3>
+            <p style={styles.text}>{shop.address}</p>
+            <p style={styles.text}>Phone: {shop.phone}</p>
+
+            {visibleShopId === shop.id && (
+              <div style={styles.details}>
+                <p>Hours: {shop.hours}</p>
+                <p>{shop.details}</p>
+                <button style={styles.button} onClick={() => toggleDetails(shop.id)}>
+                  {visibleShopId === shop.id ? 'Hide Details' : 'Show Details'}
+                </button>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Shop;

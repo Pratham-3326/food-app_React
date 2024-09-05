@@ -40,7 +40,7 @@ const Header = () => {
               <Nav.Link as={Link} to="/OurMenu">
                 Our Menu
               </Nav.Link>
-              <Nav.Link as={Link} to="/shop">
+              <Nav.Link as={Link} to="/Shop">   
                 Shop
               </Nav.Link>
               {/* <Nav.Link as={Link} to="/blog">
@@ -49,7 +49,7 @@ const Header = () => {
               <Nav.Link as={Link} to="/contact">
                 Contact
               </Nav.Link>
-              <Nav.Link as={Link} to="/">
+              <Nav.Link as={Link} to="/CartPage">
                 <div className="cart">
                   <i class="bi bi-bag fs-5"></i>
                   <em className="roundpoint">2</em>

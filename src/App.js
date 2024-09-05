@@ -5,6 +5,8 @@ import About from "./pages/Header/About";
 import OurMenu from "./pages/Header/Ourmenu";
 import Shop from "./pages/Header/Shop";
 import Contact from "./pages/Header/Contact";
+import CartPage from "./components/Layouts/CartPage";
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path="/OurMenu" element={<OurMenu/>}/>
         <Route path="/Shop" element={<Shop/>}/>
         <Route path="/Contact" element={<Contact/>}/>
+        <Route path="/CartPage" element={<CartPage/>}/>
       </Routes>
     </Router>
   );
