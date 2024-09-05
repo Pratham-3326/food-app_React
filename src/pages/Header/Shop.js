@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BackToHomeButton from './BackToHomeButton';
 
 const shops = [
   {
@@ -96,6 +97,7 @@ const Shop = () => {
 
   return (
     <div style={styles.container}>
+        <BackToHomeButton/>
       <h1 style={styles.h1}>Burger Shops</h1>
       <div style={styles.list}>
         {shops.map((shop) => (
